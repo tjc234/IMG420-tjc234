@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1i0dthblhhvj"]
+[gd_scene load_steps=8 format=3 uid="uid://b1i0dthblhhvj"]
 
 [ext_resource type="Script" uid="uid://b1ln8kvo0kmxq" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b0mkl38eorbmb" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bapxmueo6f5qe" path="res://mob.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://nkrt3sukecrw" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dd0ob7onjwoyj" path="res://PulseAura.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dfu32tuqnci6s" path="res://TrophyStar.gd" id="6_7mycd"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -16,6 +18,9 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="PulseAura" type="Sprite2D" parent="Player"]
+script = ExtResource("5_lquwl")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -39,6 +44,9 @@ curve = SubResource("Curve2D_h2yge")
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="TrophyStar" type="Sprite2D" parent="."]
+script = ExtResource("6_7mycd")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
