@@ -1,0 +1,59 @@
+# Godot-specific
+.import/
+.export/
+mono/
+data_*/
+*.import
+*.translation
+
+# Project files to ignore
+*.tmp
+*.log
+*.cache
+*.flags
+
+# OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor-specific
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.mdb
+*.class
+*.jar
+
+# Python virtualenv (if using scripts/tools)
+venv/
+ENV/
+*.pyc
+__pycache__/
+
+# Godot 4 Web exports cache
+*.wasm
+*.pck
+*.zip
+
+# Backup files
+*.bak
+*.old
+*.orig
+*~
+
+# Godot project cache
+.godot/
