@@ -1,4 +1,4 @@
-# Hug the Creeps
+# Run from the Creeps!!!!!!!
 
 A simple 2D game built in Godot 4.5 as part of a class project.
 
