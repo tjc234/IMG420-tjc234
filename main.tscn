@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1i0dthblhhvj"]
+[gd_scene load_steps=10 format=3 uid="uid://b1i0dthblhhvj"]
 
 [ext_resource type="Script" uid="uid://b1ln8kvo0kmxq" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b0mkl38eorbmb" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bapxmueo6f5qe" path="res://mob.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://nkrt3sukecrw" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dd0ob7onjwoyj" path="res://PulseAura.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://dfu32tuqnci6s" path="res://TrophyStar.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://bjggroyu1wx1w" path="res://FlockManager.cs" id="7_272bh"]
+[ext_resource type="Script" uid="uid://cbcpi4x3jhe6y" path="res://FlockSpawner.cs" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cqo3kt6wkqbsj" path="res://Boid.tscn" id="9_kek77"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -15,7 +17,6 @@ point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0xm2m")
-mob_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 
@@ -47,6 +48,14 @@ one_shot = true
 
 [node name="TrophyStar" type="Sprite2D" parent="."]
 script = ExtResource("6_7mycd")
+
+[node name="FlockManager" type="Node" parent="."]
+script = ExtResource("7_272bh")
+
+[node name="FlockSpawner" type="Node2D" parent="."]
+position = Vector2(47, 99)
+script = ExtResource("8_5vw27")
+BoidScene = ExtResource("9_kek77")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

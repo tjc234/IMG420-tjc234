@@ -1,24 +1,33 @@
 # Godot-specific
 .import/
 .export/
-mono/
+mono/              
 data_*/
+.godot/               
 *.import
 *.translation
 
-# Project files to ignore
-*.tmp
-*.log
+# Temporary export builds
+*.pck
+*.zip
+*.wasm
+*.html
+*.js
+
+# C# / .NET build artifacts
+bin/
+obj/
+.mono/
+.csproj.user
+*.dll
+*.exe
+*.pdb
+*.mdb
 *.cache
-*.flags
+*.userprefs
 
-# OS-specific
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
 
-# Editor-specific
+# Rider / Visual Studio
 .vscode/
 .idea/
 *.suo
@@ -26,34 +35,29 @@ Desktop.ini
 *.userosscache
 *.sln.docstates
 
-# Build artifacts
-bin/
-obj/
-*.exe
-*.dll
-*.so
-*.dylib
-*.pdb
-*.mdb
-*.class
-*.jar
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Python virtualenv (if using scripts/tools)
-venv/
-ENV/
-*.pyc
-__pycache__/
-
-# Godot 4 Web exports cache
-*.wasm
-*.pck
-*.zip
-
-# Backup files
+# Logs and temps
+*.tmp
+*.log
+*.flags
 *.bak
 *.old
 *.orig
 *~
 
-# Godot project cache
-.godot/
+# Python or tooling helpers
+venv/
+ENV/
+*.pyc
+__pycache__/
+
+# Misc project caches
+
+# Add optional folders your editor may drop
+.cache/
+.gradle/

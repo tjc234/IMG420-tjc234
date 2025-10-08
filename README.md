@@ -10,11 +10,11 @@ A simple 2D game built in Godot 4.5 as part of a class project.
 
 ## How to Play
 - Use **Arrow Keys** to move your character
-- Hug creeps (touch them) to score points
-- The game lasts **60 seconds**
-- Every 10 hugs, you get a small speed boost
-- Objective: Hug **75 or more creeps** before time runs out to win!
-- Less than 75 = lose
+- **New:** The player **runs from mobs**. If you can **dodge them for 60 seconds**, you win.
+- Touching a mob ends your run.
+- A subtle **particle trail** follows each mob to make motion clearer.
 
-## Notes
-- High score is tracked locally during the session
+## Game Rules
+- Round length: **60 seconds**
+- Win condition: **Survive the full minute** without getting hit
+- Lose condition: **Any collision** with a mob

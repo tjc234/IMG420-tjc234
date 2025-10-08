@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqo3kt6wkqbsj"]
+
+[ext_resource type="Script" uid="uid://cpdg8cv0kwpkx" path="res://Boid2D.cs" id="1_yy4ks"]
+[ext_resource type="Texture2D" uid="uid://ci7dcpqrwftoq" path="res://art/enemySwimming_2.png" id="2_cwpja"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwpja"]
+radius = 31.0
+height = 62.0
+
+[sub_resource type="Gradient" id="Gradient_cwpja"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_awqyi"]
+gradient = SubResource("Gradient_cwpja")
+width = 10
+height = 10
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t23lk"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="Boid2D" type="Node2D"]
+script = ExtResource("1_yy4ks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.0000038, 0)
+scale = Vector2(0.43939394, 0.5104167)
+texture = ExtResource("2_cwpja")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_cwpja")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+position = Vector2(2.0000038, 0)
+scale = Vector2(0.086, 0.1)
+amount = 60
+texture = SubResource("GradientTexture2D_awqyi")
+lifetime = 0.43
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_t23lk")
